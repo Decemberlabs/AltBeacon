@@ -14,13 +14,13 @@ The key behind AltBeacon is that the Bluetooth Low Energy stack of iOS allows ba
 
 Will find all the AltBeacons around that are advertising in the foreground but none that is advertising in the background. So this is not a valid alternative. 
 
-The solution is to discover UUIDs that you already know. But this approach is difficult to scale as if you have a database with 1000000 AltBeacons. It would be impossible to scan them all. 
-The trick here is to use CoreLocation and store the Location of all the AltBeacons in a database and then define a radius of a few km to filter most of them. Then search only for the AltBeacons in that radius. Our tests show that you can scan for maximum 25 UUIDS at a time. If you scan for more than that then the CentralManager returns crap. The following call, if it contains less than 25 UUIDS, will find them correctly.
+The solution is to discover UUIDs that you already know. But this approach is difficult to scale if you have a database with 1000000 AltBeacons. It would be impossible to scan them all. 
+The trick here is to use CoreLocation and store the Location of all the AltBeacons in a database and then define a radius of a few km to filter most of them. Then search only for the AltBeacons in that radius. Our experiments show that you can scan for a maximum of 25 UUIDS at a time. If you scan for more than that then the CentralManager returns crap. The following call, if it contains less than 25 UUIDS, will find them correctly.
 
     NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
     [centralManager scanForPeripheralsWithServices:uuidsToDetect options:scanOptions];
 
-Considering that it takes just a few seconds in the worst case to find the AltBeacons that you are scanning for, in less than a minute you can scan for hundred of beacons. If in addition you limit the number of AltBeacons using CoreLocation and database to a radius of a couple of kilometers then this approach is quite scalable. 
+Considering that it takes just a few seconds in the worst case to find the AltBeacons that you are scanning for, in less than a minute you can scan for hundred of beacons. If in addition if you limit the number of AltBeacons using CoreLocation and database to a radius of a couple of kilometers then this approach is quite scalable. 
 
 Version
 ----
@@ -37,7 +37,7 @@ Usage
 
 There is a Demo project inside the source code. Please check it.
 
-Define the Uuids of the AltBeacons. In a real project you would generate this automatically and store them in a database to then perform the locations radius filtering. 
+Define the UUIDS of the AltBeacons. In a real project you would generate this automatically and store them in a database to then perform the location radius filtering. 
 
     #define kUuidBeaconOne @"5F22CA05-8F6C-49B6-AEAE-B278FDFE9287"
     #define kUuidBeaconTwo @"9F3E9E58-5073-4F78-BD04-87050DAFB604"
