@@ -1,0 +1,717 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6AF69B73191FDE9300123BAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF69B72191FDE9300123BAF /* Foundation.framework */; };
+		6AF69B75191FDE9300123BAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF69B74191FDE9300123BAF /* CoreGraphics.framework */; };
+		6AF69B77191FDE9300123BAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF69B76191FDE9300123BAF /* UIKit.framework */; };
+		6AF69B7D191FDE9300123BAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AF69B7B191FDE9300123BAF /* InfoPlist.strings */; };
+		6AF69B7F191FDE9300123BAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69B7E191FDE9300123BAF /* main.m */; };
+		6AF69B83191FDE9300123BAF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69B82191FDE9300123BAF /* AppDelegate.m */; };
+		6AF69B85191FDE9300123BAF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AF69B84191FDE9300123BAF /* Images.xcassets */; };
+		6AF69B8C191FDE9300123BAF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF69B8B191FDE9300123BAF /* XCTest.framework */; };
+		6AF69B8D191FDE9300123BAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF69B72191FDE9300123BAF /* Foundation.framework */; };
+		6AF69B8E191FDE9300123BAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AF69B76191FDE9300123BAF /* UIKit.framework */; };
+		6AF69B96191FDE9300123BAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6AF69B94191FDE9300123BAF /* InfoPlist.strings */; };
+		6AF69B98191FDE9300123BAF /* AltBeaconTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69B97191FDE9300123BAF /* AltBeaconTests.m */; };
+		6AF69BDC191FDEDE00123BAF /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BA2191FDEDE00123BAF /* Reachability.m */; };
+		6AF69BDD191FDEDE00123BAF /* CBCentralManager+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BA5191FDEDE00123BAF /* CBCentralManager+Ext.m */; };
+		6AF69BDE191FDEDE00123BAF /* CBPeripheralManager+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BA7191FDEDE00123BAF /* CBPeripheralManager+Ext.m */; };
+		6AF69BDF191FDEDE00123BAF /* CBUUID+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BA9191FDEDE00123BAF /* CBUUID+Ext.m */; };
+		6AF69BE0191FDEDE00123BAF /* CLBeacon+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BAB191FDEDE00123BAF /* CLBeacon+Ext.m */; };
+		6AF69BE1191FDEDE00123BAF /* NSArray+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BAE191FDEDE00123BAF /* NSArray+Ext.m */; };
+		6AF69BE2191FDEDE00123BAF /* NSDate+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BB0191FDEDE00123BAF /* NSDate+Ext.m */; };
+		6AF69BE3191FDEDE00123BAF /* NSDictionary+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BB2191FDEDE00123BAF /* NSDictionary+Ext.m */; };
+		6AF69BE4191FDEDE00123BAF /* NSFileManager+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BB4191FDEDE00123BAF /* NSFileManager+Ext.m */; };
+		6AF69BE5191FDEDE00123BAF /* NSMutableArray+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BB6191FDEDE00123BAF /* NSMutableArray+Ext.m */; };
+		6AF69BE6191FDEDE00123BAF /* NSMutableDictionary+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BB8191FDEDE00123BAF /* NSMutableDictionary+Ext.m */; };
+		6AF69BE7191FDEDE00123BAF /* NSMutableSet+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BBA191FDEDE00123BAF /* NSMutableSet+Ext.m */; };
+		6AF69BE8191FDEDE00123BAF /* NSObject+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BBC191FDEDE00123BAF /* NSObject+Ext.m */; };
+		6AF69BE9191FDEDE00123BAF /* NSRangeExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BBE191FDEDE00123BAF /* NSRangeExt.m */; };
+		6AF69BEA191FDEDE00123BAF /* NSSet+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BC0191FDEDE00123BAF /* NSSet+Ext.m */; };
+		6AF69BEB191FDEDE00123BAF /* NSString+Ext.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BC2191FDEDE00123BAF /* NSString+Ext.m */; };
+		6AF69BF3191FDEDE00123BAF /* EasedValue.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BD4191FDEDE00123BAF /* EasedValue.m */; };
+		6AF69BF4191FDEDE00123BAF /* GCDUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BD7191FDEDE00123BAF /* GCDUtilities.m */; };
+		6AF69BF5191FDEDE00123BAF /* INWeightedAverage.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BD9191FDEDE00123BAF /* INWeightedAverage.m */; };
+		6AF69BF6191FDEDE00123BAF /* ReachabilityService.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BDB191FDEDE00123BAF /* ReachabilityService.m */; };
+		6AF69BFB191FDEFF00123BAF /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AF69BF9191FDEFF00123BAF /* DemoViewController.m */; };
+		6AF69BFC191FDEFF00123BAF /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AF69BFA191FDEFF00123BAF /* DemoViewController.xib */; };
+		6AF69C04191FFCD000123BAF /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF69C03191FFCD000123BAF /* logo.png */; };
+		6AF69C06191FFE1A00123BAF /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF69C05191FFE1A00123BAF /* back.png */; };
+		CD253C3D1920D144001BC53B /* AltBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = CD253C3C1920D144001BC53B /* AltBeacon.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6AF69B8F191FDE9300123BAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AF69B20191FD7B800123BAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AF69B6E191FDE9300123BAF;
+			remoteInfo = AltBeacon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6AF69B6F191FDE9300123BAF /* AltBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AltBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AF69B72191FDE9300123BAF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6AF69B74191FDE9300123BAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6AF69B76191FDE9300123BAF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		6AF69B7A191FDE9300123BAF /* AltBeacon-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AltBeacon-Info.plist"; sourceTree = "<group>"; };
+		6AF69B7C191FDE9300123BAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6AF69B7E191FDE9300123BAF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6AF69B80191FDE9300123BAF /* AltBeacon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AltBeacon-Prefix.pch"; sourceTree = "<group>"; };
+		6AF69B81191FDE9300123BAF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6AF69B82191FDE9300123BAF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6AF69B84191FDE9300123BAF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6AF69B8A191FDE9300123BAF /* AltBeaconTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AltBeaconTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AF69B8B191FDE9300123BAF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		6AF69B93191FDE9300123BAF /* AltBeaconTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AltBeaconTests-Info.plist"; sourceTree = "<group>"; };
+		6AF69B95191FDE9300123BAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6AF69B97191FDE9300123BAF /* AltBeaconTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AltBeaconTests.m; sourceTree = "<group>"; };
+		6AF69BA1191FDEDE00123BAF /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		6AF69BA2191FDEDE00123BAF /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		6AF69BA4191FDEDE00123BAF /* CBCentralManager+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBCentralManager+Ext.h"; sourceTree = "<group>"; };
+		6AF69BA5191FDEDE00123BAF /* CBCentralManager+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBCentralManager+Ext.m"; sourceTree = "<group>"; };
+		6AF69BA6191FDEDE00123BAF /* CBPeripheralManager+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBPeripheralManager+Ext.h"; sourceTree = "<group>"; };
+		6AF69BA7191FDEDE00123BAF /* CBPeripheralManager+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBPeripheralManager+Ext.m"; sourceTree = "<group>"; };
+		6AF69BA8191FDEDE00123BAF /* CBUUID+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CBUUID+Ext.h"; sourceTree = "<group>"; };
+		6AF69BA9191FDEDE00123BAF /* CBUUID+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CBUUID+Ext.m"; sourceTree = "<group>"; };
+		6AF69BAA191FDEDE00123BAF /* CLBeacon+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CLBeacon+Ext.h"; sourceTree = "<group>"; };
+		6AF69BAB191FDEDE00123BAF /* CLBeacon+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CLBeacon+Ext.m"; sourceTree = "<group>"; };
+		6AF69BAC191FDEDE00123BAF /* CustomExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomExtensions.h; sourceTree = "<group>"; };
+		6AF69BAD191FDEDE00123BAF /* NSArray+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Ext.h"; sourceTree = "<group>"; };
+		6AF69BAE191FDEDE00123BAF /* NSArray+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Ext.m"; sourceTree = "<group>"; };
+		6AF69BAF191FDEDE00123BAF /* NSDate+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Ext.h"; sourceTree = "<group>"; };
+		6AF69BB0191FDEDE00123BAF /* NSDate+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Ext.m"; sourceTree = "<group>"; };
+		6AF69BB1191FDEDE00123BAF /* NSDictionary+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Ext.h"; sourceTree = "<group>"; };
+		6AF69BB2191FDEDE00123BAF /* NSDictionary+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Ext.m"; sourceTree = "<group>"; };
+		6AF69BB3191FDEDE00123BAF /* NSFileManager+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Ext.h"; sourceTree = "<group>"; };
+		6AF69BB4191FDEDE00123BAF /* NSFileManager+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Ext.m"; sourceTree = "<group>"; };
+		6AF69BB5191FDEDE00123BAF /* NSMutableArray+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+Ext.h"; sourceTree = "<group>"; };
+		6AF69BB6191FDEDE00123BAF /* NSMutableArray+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+Ext.m"; sourceTree = "<group>"; };
+		6AF69BB7191FDEDE00123BAF /* NSMutableDictionary+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Ext.h"; sourceTree = "<group>"; };
+		6AF69BB8191FDEDE00123BAF /* NSMutableDictionary+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Ext.m"; sourceTree = "<group>"; };
+		6AF69BB9191FDEDE00123BAF /* NSMutableSet+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableSet+Ext.h"; sourceTree = "<group>"; };
+		6AF69BBA191FDEDE00123BAF /* NSMutableSet+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableSet+Ext.m"; sourceTree = "<group>"; };
+		6AF69BBB191FDEDE00123BAF /* NSObject+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Ext.h"; sourceTree = "<group>"; };
+		6AF69BBC191FDEDE00123BAF /* NSObject+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Ext.m"; sourceTree = "<group>"; };
+		6AF69BBD191FDEDE00123BAF /* NSRangeExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSRangeExt.h; sourceTree = "<group>"; };
+		6AF69BBE191FDEDE00123BAF /* NSRangeExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSRangeExt.m; sourceTree = "<group>"; };
+		6AF69BBF191FDEDE00123BAF /* NSSet+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSet+Ext.h"; sourceTree = "<group>"; };
+		6AF69BC0191FDEDE00123BAF /* NSSet+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSet+Ext.m"; sourceTree = "<group>"; };
+		6AF69BC1191FDEDE00123BAF /* NSString+Ext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Ext.h"; sourceTree = "<group>"; };
+		6AF69BC2191FDEDE00123BAF /* NSString+Ext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Ext.m"; sourceTree = "<group>"; };
+		6AF69BD3191FDEDE00123BAF /* EasedValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EasedValue.h; sourceTree = "<group>"; };
+		6AF69BD4191FDEDE00123BAF /* EasedValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EasedValue.m; sourceTree = "<group>"; };
+		6AF69BD5191FDEDE00123BAF /* GCDSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDSingleton.h; sourceTree = "<group>"; };
+		6AF69BD6191FDEDE00123BAF /* GCDUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDUtilities.h; sourceTree = "<group>"; };
+		6AF69BD7191FDEDE00123BAF /* GCDUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDUtilities.m; sourceTree = "<group>"; };
+		6AF69BD8191FDEDE00123BAF /* INWeightedAverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = INWeightedAverage.h; sourceTree = "<group>"; };
+		6AF69BD9191FDEDE00123BAF /* INWeightedAverage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INWeightedAverage.m; sourceTree = "<group>"; };
+		6AF69BDA191FDEDE00123BAF /* ReachabilityService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReachabilityService.h; sourceTree = "<group>"; };
+		6AF69BDB191FDEDE00123BAF /* ReachabilityService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReachabilityService.m; sourceTree = "<group>"; };
+		6AF69BF8191FDEFF00123BAF /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
+		6AF69BF9191FDEFF00123BAF /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
+		6AF69BFA191FDEFF00123BAF /* DemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
+		6AF69C03191FFCD000123BAF /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		6AF69C05191FFE1A00123BAF /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		CD253C3B1920D144001BC53B /* AltBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AltBeacon.h; sourceTree = "<group>"; };
+		CD253C3C1920D144001BC53B /* AltBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AltBeacon.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6AF69B6C191FDE9300123BAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AF69B75191FDE9300123BAF /* CoreGraphics.framework in Frameworks */,
+				6AF69B77191FDE9300123BAF /* UIKit.framework in Frameworks */,
+				6AF69B73191FDE9300123BAF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AF69B87191FDE9300123BAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AF69B8C191FDE9300123BAF /* XCTest.framework in Frameworks */,
+				6AF69B8E191FDE9300123BAF /* UIKit.framework in Frameworks */,
+				6AF69B8D191FDE9300123BAF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6AF69B1F191FD7B800123BAF = {
+			isa = PBXGroup;
+			children = (
+				6AF69B78191FDE9300123BAF /* AltBeacon */,
+				6AF69B91191FDE9300123BAF /* AltBeaconTests */,
+				6AF69B71191FDE9300123BAF /* Frameworks */,
+				6AF69B70191FDE9300123BAF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6AF69B70191FDE9300123BAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6AF69B6F191FDE9300123BAF /* AltBeacon.app */,
+				6AF69B8A191FDE9300123BAF /* AltBeaconTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6AF69B71191FDE9300123BAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6AF69B72191FDE9300123BAF /* Foundation.framework */,
+				6AF69B74191FDE9300123BAF /* CoreGraphics.framework */,
+				6AF69B76191FDE9300123BAF /* UIKit.framework */,
+				6AF69B8B191FDE9300123BAF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6AF69B78191FDE9300123BAF /* AltBeacon */ = {
+			isa = PBXGroup;
+			children = (
+				6AF69BF7191FDEEA00123BAF /* Demo */,
+				6AF69B9F191FDEDE00123BAF /* Source */,
+				6AF69B81191FDE9300123BAF /* AppDelegate.h */,
+				6AF69B82191FDE9300123BAF /* AppDelegate.m */,
+				6AF69B84191FDE9300123BAF /* Images.xcassets */,
+				6AF69B79191FDE9300123BAF /* Supporting Files */,
+			);
+			path = AltBeacon;
+			sourceTree = "<group>";
+		};
+		6AF69B79191FDE9300123BAF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6AF69C05191FFE1A00123BAF /* back.png */,
+				6AF69C03191FFCD000123BAF /* logo.png */,
+				6AF69B7A191FDE9300123BAF /* AltBeacon-Info.plist */,
+				6AF69B7B191FDE9300123BAF /* InfoPlist.strings */,
+				6AF69B7E191FDE9300123BAF /* main.m */,
+				6AF69B80191FDE9300123BAF /* AltBeacon-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6AF69B91191FDE9300123BAF /* AltBeaconTests */ = {
+			isa = PBXGroup;
+			children = (
+				6AF69B97191FDE9300123BAF /* AltBeaconTests.m */,
+				6AF69B92191FDE9300123BAF /* Supporting Files */,
+			);
+			path = AltBeaconTests;
+			sourceTree = "<group>";
+		};
+		6AF69B92191FDE9300123BAF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6AF69B93191FDE9300123BAF /* AltBeaconTests-Info.plist */,
+				6AF69B94191FDE9300123BAF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6AF69B9F191FDEDE00123BAF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CD253C3B1920D144001BC53B /* AltBeacon.h */,
+				CD253C3C1920D144001BC53B /* AltBeacon.m */,
+				6AF69BA0191FDEDE00123BAF /* 3rdParty */,
+				6AF69BA3191FDEDE00123BAF /* Extension */,
+				6AF69BD0191FDEDE00123BAF /* Util */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		6AF69BA0191FDEDE00123BAF /* 3rdParty */ = {
+			isa = PBXGroup;
+			children = (
+				6AF69BA1191FDEDE00123BAF /* Reachability.h */,
+				6AF69BA2191FDEDE00123BAF /* Reachability.m */,
+			);
+			path = 3rdParty;
+			sourceTree = "<group>";
+		};
+		6AF69BA3191FDEDE00123BAF /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6AF69BA4191FDEDE00123BAF /* CBCentralManager+Ext.h */,
+				6AF69BA5191FDEDE00123BAF /* CBCentralManager+Ext.m */,
+				6AF69BA6191FDEDE00123BAF /* CBPeripheralManager+Ext.h */,
+				6AF69BA7191FDEDE00123BAF /* CBPeripheralManager+Ext.m */,
+				6AF69BA8191FDEDE00123BAF /* CBUUID+Ext.h */,
+				6AF69BA9191FDEDE00123BAF /* CBUUID+Ext.m */,
+				6AF69BAA191FDEDE00123BAF /* CLBeacon+Ext.h */,
+				6AF69BAB191FDEDE00123BAF /* CLBeacon+Ext.m */,
+				6AF69BAC191FDEDE00123BAF /* CustomExtensions.h */,
+				6AF69BAD191FDEDE00123BAF /* NSArray+Ext.h */,
+				6AF69BAE191FDEDE00123BAF /* NSArray+Ext.m */,
+				6AF69BAF191FDEDE00123BAF /* NSDate+Ext.h */,
+				6AF69BB0191FDEDE00123BAF /* NSDate+Ext.m */,
+				6AF69BB1191FDEDE00123BAF /* NSDictionary+Ext.h */,
+				6AF69BB2191FDEDE00123BAF /* NSDictionary+Ext.m */,
+				6AF69BB3191FDEDE00123BAF /* NSFileManager+Ext.h */,
+				6AF69BB4191FDEDE00123BAF /* NSFileManager+Ext.m */,
+				6AF69BB5191FDEDE00123BAF /* NSMutableArray+Ext.h */,
+				6AF69BB6191FDEDE00123BAF /* NSMutableArray+Ext.m */,
+				6AF69BB7191FDEDE00123BAF /* NSMutableDictionary+Ext.h */,
+				6AF69BB8191FDEDE00123BAF /* NSMutableDictionary+Ext.m */,
+				6AF69BB9191FDEDE00123BAF /* NSMutableSet+Ext.h */,
+				6AF69BBA191FDEDE00123BAF /* NSMutableSet+Ext.m */,
+				6AF69BBB191FDEDE00123BAF /* NSObject+Ext.h */,
+				6AF69BBC191FDEDE00123BAF /* NSObject+Ext.m */,
+				6AF69BBD191FDEDE00123BAF /* NSRangeExt.h */,
+				6AF69BBE191FDEDE00123BAF /* NSRangeExt.m */,
+				6AF69BBF191FDEDE00123BAF /* NSSet+Ext.h */,
+				6AF69BC0191FDEDE00123BAF /* NSSet+Ext.m */,
+				6AF69BC1191FDEDE00123BAF /* NSString+Ext.h */,
+				6AF69BC2191FDEDE00123BAF /* NSString+Ext.m */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		6AF69BD0191FDEDE00123BAF /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				6AF69BD3191FDEDE00123BAF /* EasedValue.h */,
+				6AF69BD4191FDEDE00123BAF /* EasedValue.m */,
+				6AF69BD5191FDEDE00123BAF /* GCDSingleton.h */,
+				6AF69BD6191FDEDE00123BAF /* GCDUtilities.h */,
+				6AF69BD7191FDEDE00123BAF /* GCDUtilities.m */,
+				6AF69BD8191FDEDE00123BAF /* INWeightedAverage.h */,
+				6AF69BD9191FDEDE00123BAF /* INWeightedAverage.m */,
+				6AF69BDA191FDEDE00123BAF /* ReachabilityService.h */,
+				6AF69BDB191FDEDE00123BAF /* ReachabilityService.m */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		6AF69BF7191FDEEA00123BAF /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				6AF69BF8191FDEFF00123BAF /* DemoViewController.h */,
+				6AF69BF9191FDEFF00123BAF /* DemoViewController.m */,
+				6AF69BFA191FDEFF00123BAF /* DemoViewController.xib */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6AF69B6E191FDE9300123BAF /* AltBeacon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AF69B99191FDE9300123BAF /* Build configuration list for PBXNativeTarget "AltBeacon" */;
+			buildPhases = (
+				6AF69B6B191FDE9300123BAF /* Sources */,
+				6AF69B6C191FDE9300123BAF /* Frameworks */,
+				6AF69B6D191FDE9300123BAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AltBeacon;
+			productName = AltBeacon;
+			productReference = 6AF69B6F191FDE9300123BAF /* AltBeacon.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6AF69B89191FDE9300123BAF /* AltBeaconTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6AF69B9C191FDE9300123BAF /* Build configuration list for PBXNativeTarget "AltBeaconTests" */;
+			buildPhases = (
+				6AF69B86191FDE9300123BAF /* Sources */,
+				6AF69B87191FDE9300123BAF /* Frameworks */,
+				6AF69B88191FDE9300123BAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6AF69B90191FDE9300123BAF /* PBXTargetDependency */,
+			);
+			name = AltBeaconTests;
+			productName = AltBeaconTests;
+			productReference = 6AF69B8A191FDE9300123BAF /* AltBeaconTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6AF69B20191FD7B800123BAF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				TargetAttributes = {
+					6AF69B6E191FDE9300123BAF = {
+						DevelopmentTeam = 68UAR7Q9NP;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					6AF69B89191FDE9300123BAF = {
+						TestTargetID = 6AF69B6E191FDE9300123BAF;
+					};
+				};
+			};
+			buildConfigurationList = 6AF69B23191FD7B800123BAF /* Build configuration list for PBXProject "AltBeacon" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6AF69B1F191FD7B800123BAF;
+			productRefGroup = 6AF69B70191FDE9300123BAF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6AF69B6E191FDE9300123BAF /* AltBeacon */,
+				6AF69B89191FDE9300123BAF /* AltBeaconTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6AF69B6D191FDE9300123BAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AF69C04191FFCD000123BAF /* logo.png in Resources */,
+				6AF69C06191FFE1A00123BAF /* back.png in Resources */,
+				6AF69B7D191FDE9300123BAF /* InfoPlist.strings in Resources */,
+				6AF69BFC191FDEFF00123BAF /* DemoViewController.xib in Resources */,
+				6AF69B85191FDE9300123BAF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AF69B88191FDE9300123BAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AF69B96191FDE9300123BAF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6AF69B6B191FDE9300123BAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AF69BE0191FDEDE00123BAF /* CLBeacon+Ext.m in Sources */,
+				6AF69BFB191FDEFF00123BAF /* DemoViewController.m in Sources */,
+				6AF69B83191FDE9300123BAF /* AppDelegate.m in Sources */,
+				6AF69BE8191FDEDE00123BAF /* NSObject+Ext.m in Sources */,
+				6AF69BF5191FDEDE00123BAF /* INWeightedAverage.m in Sources */,
+				6AF69BDF191FDEDE00123BAF /* CBUUID+Ext.m in Sources */,
+				6AF69BDC191FDEDE00123BAF /* Reachability.m in Sources */,
+				6AF69BE4191FDEDE00123BAF /* NSFileManager+Ext.m in Sources */,
+				6AF69BE9191FDEDE00123BAF /* NSRangeExt.m in Sources */,
+				6AF69BE1191FDEDE00123BAF /* NSArray+Ext.m in Sources */,
+				6AF69BE2191FDEDE00123BAF /* NSDate+Ext.m in Sources */,
+				6AF69BDD191FDEDE00123BAF /* CBCentralManager+Ext.m in Sources */,
+				6AF69BDE191FDEDE00123BAF /* CBPeripheralManager+Ext.m in Sources */,
+				6AF69BE5191FDEDE00123BAF /* NSMutableArray+Ext.m in Sources */,
+				6AF69BE3191FDEDE00123BAF /* NSDictionary+Ext.m in Sources */,
+				6AF69BF3191FDEDE00123BAF /* EasedValue.m in Sources */,
+				6AF69BE6191FDEDE00123BAF /* NSMutableDictionary+Ext.m in Sources */,
+				6AF69BEA191FDEDE00123BAF /* NSSet+Ext.m in Sources */,
+				6AF69BEB191FDEDE00123BAF /* NSString+Ext.m in Sources */,
+				6AF69BF6191FDEDE00123BAF /* ReachabilityService.m in Sources */,
+				6AF69BF4191FDEDE00123BAF /* GCDUtilities.m in Sources */,
+				6AF69BE7191FDEDE00123BAF /* NSMutableSet+Ext.m in Sources */,
+				6AF69B7F191FDE9300123BAF /* main.m in Sources */,
+				CD253C3D1920D144001BC53B /* AltBeacon.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6AF69B86191FDE9300123BAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6AF69B98191FDE9300123BAF /* AltBeaconTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6AF69B90191FDE9300123BAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6AF69B6E191FDE9300123BAF /* AltBeacon */;
+			targetProxy = 6AF69B8F191FDE9300123BAF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6AF69B7B191FDE9300123BAF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AF69B7C191FDE9300123BAF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		6AF69B94191FDE9300123BAF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6AF69B95191FDE9300123BAF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6AF69B24191FD7B800123BAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Debug;
+		};
+		6AF69B25191FD7B800123BAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+			};
+			name = Release;
+		};
+		6AF69B9A191FDE9300123BAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AltBeacon/AltBeacon-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "AltBeacon/AltBeacon-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6AF69B9B191FDE9300123BAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AltBeacon/AltBeacon-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "AltBeacon/AltBeacon-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		6AF69B9D191FDE9300123BAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AltBeacon.app/AltBeacon";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AltBeacon/AltBeacon-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "AltBeaconTests/AltBeaconTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		6AF69B9E191FDE9300123BAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AltBeacon.app/AltBeacon";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AltBeacon/AltBeacon-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "AltBeaconTests/AltBeaconTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6AF69B23191FD7B800123BAF /* Build configuration list for PBXProject "AltBeacon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AF69B24191FD7B800123BAF /* Debug */,
+				6AF69B25191FD7B800123BAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AF69B99191FDE9300123BAF /* Build configuration list for PBXNativeTarget "AltBeacon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AF69B9A191FDE9300123BAF /* Debug */,
+				6AF69B9B191FDE9300123BAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6AF69B9C191FDE9300123BAF /* Build configuration list for PBXNativeTarget "AltBeaconTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6AF69B9D191FDE9300123BAF /* Debug */,
+				6AF69B9E191FDE9300123BAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6AF69B20191FD7B800123BAF /* Project object */;
+}
