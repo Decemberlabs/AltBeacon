@@ -1,7 +1,7 @@
 AltBeacon
 =========
 
-AltBeacon is an alternative to iBeacon that allows iOS devices to be advertised in the background, which is not currently possible with iBeacon. It is based on the open source project Vinicity (thanks Ben Ford) https://github.com/Instrument/Vicinity. In addition to the great job done in Vicinity, AltBeacons adds the possibility to detect many AltBeacons with different UUIDS and the accuracy of the range was improved. It is important to notice that by advertising in the background a whole new range of use cases are possible that require people to interact with nearby people, for example a messaging app for nearby people. We are currenlty using this framework to develop a product that will be soon in the AppStore. 
+AltBeacon is an alternative to iBeacon that allows iOS devices to be advertised in the background, which is not currently possible with iBeacon. **It is based on the open source project Vinicity (thanks Ben Ford)** https://github.com/Instrument/Vicinity. In addition to the great job done in Vicinity, AltBeacons adds the possibility to detect many AltBeacons with different UUIDS and the accuracy of the range was improved. It is important to notice that by advertising in the background a whole new range of use cases are possible that require people to interact with nearby people, for example a messaging app for nearby people. We are currenlty using this framework to develop a product that will be soon in the AppStore. 
 
 
 How does it work
@@ -20,7 +20,7 @@ The trick here is to use CoreLocation and store the Location of all the AltBeaco
     NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
     [centralManager scanForPeripheralsWithServices:uuidsToDetect options:scanOptions];
 
-Considering that it takes just a few seconds in the worst case to find the AltBeacons that you are scanning for, in less than a minute you can scan for hundred of beacons. If in addition if you limit the number of AltBeacons using CoreLocation and database to a radius of a couple of kilometers then this approach is quite scalable. 
+Considering that it takes just a few seconds in the worst case to find the AltBeacons that you are scanning for, in less than a minute you can scan for hundred of beacons. In addition if you limit the number of AltBeacons using CoreLocation and database to a radius of a couple of kilometers then this approach is quite scalable. 
 
 Version
 ----
@@ -35,7 +35,9 @@ Copy the source folder into your xcode project. (Soon I will add a cocoapod as w
 Usage
 ----
 
-There is a Demo project inside the source code. Please check it.
+**There is a Demo project inside the source code showing how to use AltBeacon. Please check it.**
+
+Otherwise check the following instructions.
 
 Define the UUIDS of the AltBeacons. In a real project you would generate this automatically and store them in a database to then perform the location radius filtering. 
 
@@ -57,7 +59,7 @@ Then start create the beacons broadcasting and detecting.
     // Add the beacons to the array
     self.uuidsToSearch = [[NSMutableArray alloc]initWithObjects:[CBUUID UUIDWithString:kUuidBeaconOne],[CBUUID UUIDWithString:kUuidBeaconTwo],[CBUUID UUIDWithString:kUuidBeaconThree], nil];
 
-Then tell the beacon to start detecting and advertising (broadcasting). You need to pass the uuids to detect. As we mention, pass 25 maximum per detection cycle and use Location and a uuids database to filter to the uuids of the devices in a radius of a few km to make this approach scalable. 
+Then tell the beacon to start detecting and advertising (broadcasting). You need to pass the uuids to detect. As we mention, pass 25 maximum per detection cycle and use Location and a uuids database to filter to the UUIDS of the devices in a radius of a few km to make this approach scalable. 
 
     - (void)start:(AltBeacon *)beacon {
 
@@ -74,7 +76,7 @@ Then tell the beacon to start detecting and advertising (broadcasting). You need
     }
 
     
-Implement the delegate to receive the information when the devices are found. You receive a dictionary with the uuid as a key and the range and enum with Immediate, Near and Far as the value. The range indicates how close you are to the uuids that was detected. This callback is called once a second and the list of uuids find is cleared every a few seconds. You can define the clearance time in the AltBeacon constructor. 
+Implement the delegate to receive the information when the devices are found. You receive a dictionary with the uuid as a key and the range and enum with Immediate, Near and Far as the value. The range indicates how close you are to the UUIDS that were detected. This callback is called once a second and the list of uuids find is cleared every a few seconds. You can define the clearance time in the AltBeacon constructor. 
 
     // Delegate methods
     - (void)service:(AltBeacon *)service foundDevices:(NSMutableDictionary *)devices {
