@@ -37,7 +37,7 @@ Usage
 
 **There is a Demo project inside the source code showing how to use AltBeacon. Please check it.**
 
-Otherwise check the following instructions.
+Otherwise check the following instructions. **Remember to add the background mode: Act as a Bluetooth LE accesory.**
 
 Define the UUIDS of the AltBeacons. In a real project you would generate this automatically and store them in a database to then perform the location radius filtering. 
 
