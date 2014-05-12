@@ -1,20 +1,21 @@
 AltBeacon
 =========
 
-AltBeacon is an alternative to iBeacon that allows iOS devices to be advertised in the background, which is not currently possible with iBeacon. It is based on the open source project Vinicity (thanks Ben Ford) https://github.com/Instrument/Vicinity. In addition to the great job done in Vicinity, AltBeacons adds the possibility to detect many AltBeacons with different UUIDS and the accuracy of the range was improved. It is important to notice that by advertising in the background a whole new range of use cases are possible that require people to interact ith nearby people, like for exmaple a messaging app for nearby people. We are currenlty using this framework to develop a product that will be soon in the AppStore. 
+AltBeacon is an alternative to iBeacon that allows iOS devices to be advertised in the background, which is not currently possible with iBeacon. It is based on the open source project Vinicity (thanks Ben Ford) https://github.com/Instrument/Vicinity. In addition to the great job done in Vicinity, AltBeacons adds the possibility to detect many AltBeacons with different UUIDS and the accuracy of the range was improved. It is important to notice that by advertising in the background a whole new range of use cases are possible that require people to interact with nearby people, for example a messaging app for nearby people. We are currenlty using this framework to develop a product that will be soon in the AppStore. 
 
 
 How does it work
 ----------------
 
-The key behind AltBeacon is that the Bluetooth Low Energy stack of iOS allows background advertising when acting as a Peripheral (In android this is still not possible but we are working in a workaround). However, when advertising in background it is only possible to discover UUIDs that you know previously (this is mentioned in the BLE documentation of apple but it was also tested by us). So the following call:
+The key behind AltBeacon is that the Bluetooth Low Energy stack of iOS allows background advertising when acting as a Peripheral (In android this is still not possible but we are working in a workaround). However, when advertising in background it is only possible to discover UUIDs that you know previously (this is mentioned in the BLE documentation of apple but it was also tested by us). Using the following call:
 
     NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
     [centralManager scanForPeripheralsWithServices:nil options:scanOptions];
 
-Will find all the AltBeacons around that are advertising in foreground but none that is advertising in the background. 
-To know previusly the UUIDS that you are looking for causes make this approach difficult to scale as if you would have a database with 1000000 AltBeacons it would be impossible to scan them all. 
-The trick here is to use CoreLocation to define an radius to filter the AltBeacons and store the Location of all the AltBeacons in a database. Then search for the AltBeacons in that radius and only scan for them. Our tests show that you can scan for maximum 25 UUIDS at a time. If you scan for more than that then the CentralManager returns crap. The following call, if it contains less than 25 UUIDS, will find them correctly.
+Will find all the AltBeacons around that are advertising in the foreground but none that is advertising in the background. So this is not a valid alternative. 
+
+The solution is to discover UUIDs that you already know. But this approach is difficult to scale as if you have a database with 1000000 AltBeacons. It would be impossible to scan them all. 
+The trick here is to use CoreLocation and store the Location of all the AltBeacons in a database and then define a radius of a few km to filter most of them. Then search only for the AltBeacons in that radius. Our tests show that you can scan for maximum 25 UUIDS at a time. If you scan for more than that then the CentralManager returns crap. The following call, if it contains less than 25 UUIDS, will find them correctly.
 
     NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
     [centralManager scanForPeripheralsWithServices:uuidsToDetect options:scanOptions];
