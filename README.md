@@ -15,12 +15,12 @@ The key behind AltBeacon is that the Bluetooth Low Energy stack of iOS allows ba
 Will find all the AltBeacons around that are advertising in the foreground but none that is advertising in the background. So this is not a valid alternative. 
 
 The solution is to discover UUIDs that you already know. But this approach is difficult to scale if you have a database with 1000000 AltBeacons. It would be impossible to scan them all. 
-The trick here is to use CoreLocation and store the Location of all the AltBeacons in a database and then define a radius of a few km to filter most of them. Then search only for the AltBeacons in that radius. The following call will find them correctly.
+The trick here is to use CoreLocation and store the Location of all the AltBeacons in a database and then define a radius of a few km to filter most of them. Then search only for the AltBeacons in that radius. Our experiments show that you can scan for a maximum of 7 UUIDS at a time. If you scan for more than that then the CentralManager returns as correct some UUIDs that are not really there. The following call, if it contains less than 7 UUIDS, will find them correctly.
 
     NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
     [centralManager scanForPeripheralsWithServices:uuidsToDetect options:scanOptions];
 
-It is important to limit the number of AltBeacons using CoreLocation and database to a radius of a couple of kilometers to make this approach viable and scalable. 
+Considering that it takes a few hundred milliseconds to find the AltBeacons that you are scanning for, in a minute you can scan for hundred of beacons. In addition if you limit the number of AltBeacons using CoreLocation and database to a radius of a couple of kilometers then this approach is quite scalable. 
 
 Version
 ----
@@ -59,7 +59,7 @@ Then start create the beacons broadcasting and detecting.
     // Add the beacons to the array
     self.uuidsToSearch = [[NSMutableArray alloc]initWithObjects:[CBUUID UUIDWithString:kUuidBeaconOne],[CBUUID UUIDWithString:kUuidBeaconTwo],[CBUUID UUIDWithString:kUuidBeaconThree], nil];
 
-Then tell the beacon to start detecting and advertising (broadcasting). You need to pass the uuids to detect. As we mentioned, use Location and a uuids database to filter to the UUIDS of the devices in a radius of a few km to make this approach scalable. 
+Then tell the beacon to start detecting and advertising (broadcasting). You need to pass the uuids to detect. As we mention, pass 7 maximum per detection cycle and use Location and a uuids database to filter to the UUIDS of the devices in a radius of a few km to make this approach scalable. 
 
     - (void)start:(AltBeacon *)beacon {
 
