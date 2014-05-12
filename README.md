@@ -1,7 +1,7 @@
 AltBeacon
 =========
 
-AltBeacon is an alternative to iBeacon that allow the iPhone to be advertised in the background, which is not currently possible in iBeacon. It is based on the open source project Vinicity (thanks Ben Ford) https://github.com/Instrument/Vicinity. By advertising in the background a whole new range of use cases are possible, like for exmaple a messaging app for nearby people. We are currenlty using this framework to develop a product that will be soon in the AppStore. 
+AltBeacon is an alternative to iBeacon that allows iOS devices to be advertised in the background, which is not currently possible with iBeacon. It is based on the open source project Vinicity (thanks Ben Ford) https://github.com/Instrument/Vicinity. In addition to the great job done in Vicinity, AltBeacons adds the possibility to detect many AltBeacons with different UUIDS and the accuracy of the range was improved. It is important to notice that by advertising in the background a whole new range of use cases are possible that require people to interact ith nearby people, like for exmaple a messaging app for nearby people. We are currenlty using this framework to develop a product that will be soon in the AppStore. 
 
 
 How does it work
@@ -12,13 +12,14 @@ The key behind AltBeacon is that the Bluetooth Low Energy stack of iOS allows ba
     NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
     [centralManager scanForPeripheralsWithServices:nil options:scanOptions];
 
-Will find all the beacons around that are advertising in foreground but none that is advertising in background. 
-This is a problem to make scalable as if you would have a database with 1000000 AltBeacons it would be impossible to scan them all. The trick here sis to use Location to define an radius to look for and then search for the AltBeacons in that area. Our test show that you can scan for maximum 25 UUIDS at a time. If you scan for more than that the CentralManager would return crap. The following call, if it contains less than 25 UUIDS, will find them correctly.
+Will find all the AltBeacons around that are advertising in foreground but none that is advertising in the background. 
+To know previusly the UUIDS that you are looking for causes make this approach difficult to scale as if you would have a database with 1000000 AltBeacons it would be impossible to scan them all. 
+The trick here is to use CoreLocation to define an radius to filter the AltBeacons and store the Location of all the AltBeacons in a database. Then search for the AltBeacons in that radius and only scan for them. Our tests show that you can scan for maximum 25 UUIDS at a time. If you scan for more than that then the CentralManager returns crap. The following call, if it contains less than 25 UUIDS, will find them correctly.
 
     NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
     [centralManager scanForPeripheralsWithServices:uuidsToDetect options:scanOptions];
 
-Consering that it takes just a few seconds in the worst case to find the beacons in less than a minute you can scan for hundred of beacons, and if in addition you limit the number of AltBeacons using Location to a radius of a couple of kilometers then this system is quite scalable. 
+Considering that it takes just a few seconds in the worst case to find the AltBeacons that you are scanning for, in less than a minute you can scan for hundred of beacons. If in addition you limit the number of AltBeacons using CoreLocation and database to a radius of a couple of kilometers then this approach is quite scalable. 
 
 Version
 ----
