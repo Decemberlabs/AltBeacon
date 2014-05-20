@@ -262,6 +262,9 @@
         }
         restartScan = [NSTimer scheduledTimerWithTimeInterval:RESTART_SCAN_INTERVAL target:self
                                                      selector:@selector(restartScan:) userInfo:nil repeats:NO];
+    }else{
+        processPeripherals = [NSTimer scheduledTimerWithTimeInterval:PROCESS_PERIPHERAL_INTERVAL target:self
+                                                            selector:@selector(processPeripherals:) userInfo:nil repeats:NO];
     }
 
 }
@@ -378,13 +381,14 @@
             [peripheralsToBeValidated addObject:peripheral];
             [peripheralDetected setObject:[[NSMutableArray alloc] init] forKey:[[peripheral.identifier UUIDString] uppercaseString]];
         } else {
-            NSNumber *lastValue = lastValues.lastObject;
-            if (lastValue.floatValue < -205) {
-                [lastValues removeLastObject];
+            for(NSNumber * valueRange in lastValues.copy){
+                if (valueRange.floatValue <= -205) {  //I'm alive -> remove aging values
+                    [lastValues removeObject:valueRange];
+                }
             }
             [lastValues addObject:RSSI.copy];
 
-            while (lastValues.count > 25) {   //rolling average
+            while (lastValues.count > 10) {   //rolling average
                 [lastValues removeObjectAtIndex:0];
             }
         }
@@ -427,14 +431,14 @@
                 i++;
 
             }
-            proximity = proximity / 25.0f;
+            proximity = proximity / 10.0f;
             INDetectorRange range;
             if (proximity < -200){
                 range = INDetectorRangeUnknown;
             }
-            else if (proximity < -85){
+            else if (proximity < -90){
                 range = INDetectorRangeFar;
-            }else if(proximity < -77){
+            }else if(proximity < -72){
                 range = INDetectorRangeNear;
             }else if (proximity < 0){
                 range = INDetectorRangeImmediate;
