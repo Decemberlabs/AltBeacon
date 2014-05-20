@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/CharruaLabs/AltBeacon.git"}
 
-  s.source_files  = "AltBeacon/Source/*.{h,m}"
+  s.source_files  = "AltBeacon/Source/*"
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
