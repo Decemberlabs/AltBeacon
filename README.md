@@ -16,18 +16,6 @@ Will find all the AltBeacons around that are advertising in the foreground but n
 
 The solution is to discover service UUIDs that are already known. Therefore AltBeacons (Centrals) scan for other AltBeacons (Peripherals) with a General UUID already known by all the AltBeacons. When they find the AltBeacon (Peripheral), they connect to that peripheral and obtain a Specific UUID for that peripheral using services and characteristics. It is important to notice that we use 2 different UUIDs. The General AltBeacon UUID is always the same for all the AltBeacons and allows us to find them , and distinguish them from other devices using BLE. The Specific AltBeacon UUID is different for all the AltBeacons and allows us to identify and differentiate the AltBeacons form each other. It is important to know that the connection between the peripheral and the central happens only once, after that the central AltBeacon can remember the peripheral and it only needs to sense for the range afterwards. There is no need to reconnect (less battery usage).  
 
-Historical
-----
-A previous version of the AltBeacon worked quite differently. As we are still evaluating the current version performance, we add a small explanation of the previous version here as well. 
-
-The previous solutions was based on scanning directly for several Specific AltBeacons UUIDS at a time, instead of first scanning for a General UUID.  The trick was to use CoreLocation and store the Location of all the AltBeacons in a database and then define a radius of a few km to filter most of them. Then search only for the AltBeacons in that radius. Our experiments showed that you can scan for a maximum of 7 UUIDS at a time. If you scan for more than that then the CentralManager returns as correct some UUIDs that are not really there. The following call, if it contains less than 7 UUIDS, will find them correctly.
-
-    NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
-    [centralManager scanForPeripheralsWithServices:uuidsToDetect options:scanOptions];
-
-Considering that it takes a few hundred milliseconds to find the AltBeacons that you are scanning for, in a minute you can scan for hundred of beacons. In addition if you limit the number of AltBeacons using CoreLocation and database to a radius of a couple of kilometers then this approach is quite scalable.
-
-An important problem with this previous version was that when more that one app was using the BLE stack at a time to advertise in background, the scanning AltBeacon would incorrectly report the findings. 
 
 Version
 ----
@@ -132,6 +120,19 @@ Other things
 Martin Palatnik -> 
 e-mail:  marpal@gmail.com
 Twitter: @mpalatnik
+
+Historical
+----
+A previous version of the AltBeacon worked quite differently. As we are still evaluating the current version performance, we add a small explanation of the previous version here as well. 
+
+The previous solutions was based on scanning directly for several Specific AltBeacons UUIDS at a time, instead of first scanning for a General UUID.  The trick was to use CoreLocation and store the Location of all the AltBeacons in a database and then define a radius of a few km to filter most of them. Then search only for the AltBeacons in that radius. Our experiments showed that you can scan for a maximum of 7 UUIDS at a time. If you scan for more than that then the CentralManager returns as correct some UUIDs that are not really there. The following call, if it contains less than 7 UUIDS, will find them correctly.
+
+    NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
+    [centralManager scanForPeripheralsWithServices:uuidsToDetect options:scanOptions];
+
+Considering that it takes a few hundred milliseconds to find the AltBeacons that you are scanning for, in a minute you can scan for hundred of beacons. In addition if you limit the number of AltBeacons using CoreLocation and database to a radius of a couple of kilometers then this approach is quite scalable.
+
+An important problem with this previous version was that when more that one app was using the BLE stack at a time to advertise in background, the scanning AltBeacon would incorrectly report the findings. 
 
 License
 ----
