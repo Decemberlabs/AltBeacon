@@ -193,7 +193,7 @@
 
     // start broadcasting
     [beacon startBroadcasting];
-    [beacon startDetecting:self.uuidsToSearch];
+    [beacon startDetecting];
 }
 
 - (void)stop:(AltBeacon *)beacon {
