@@ -47,7 +47,7 @@ typedef enum {
 
 @interface AltBeacon : NSObject
 
-- (id)initWithIdentifier:(NSString *)theIdentifier clearFoundDevicesInterval:(NSTimeInterval) intervalInSeconds;
+- (id)initWithIdentifier:(NSString *)theIdentifier;
 
 - (void)addDelegate:(id<AltBeaconDelegate>)delegate;
 - (void)removeDelegate:(id<AltBeaconDelegate>)delegate;
@@ -55,7 +55,7 @@ typedef enum {
 @property (nonatomic, readonly) BOOL isDetecting;
 @property (nonatomic, readonly) BOOL isBroadcasting;
 
-- (void)startDetecting:(NSArray *)uuids;
+- (void)startDetecting;
 - (void)stopDetecting;
 
 - (void)startBroadcasting;

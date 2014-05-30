@@ -34,7 +34,6 @@
 #define kUuidBeaconOne @"5F22CA05-8F6C-49B6-AEAE-B278FDFE9287"
 #define kUuidBeaconTwo @"9F3E9E58-5073-4F78-BD04-87050DAFB604"
 #define kUuidBeaconThree @"177383C7-8347-444F-B14E-1581131A16E2"
-#define CLEAR_INTERVAL 30.0f
 
 @interface DemoViewController ()
 
@@ -78,20 +77,20 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+
     self.didStartAltBOne=NO;
     self.didStartAltBTwo=NO;
     self.didStartAltBThree=NO;
-    
+
     // Initialize the IBeacon UUDI@
-    self.beaconOne =  [[AltBeacon alloc ]initWithIdentifier:kUuidBeaconOne clearFoundDevicesInterval:CLEAR_INTERVAL];
-    self.beaconTwo =  [[AltBeacon alloc ]initWithIdentifier:kUuidBeaconTwo clearFoundDevicesInterval:CLEAR_INTERVAL];
-    self.beaconThree =  [[AltBeacon alloc ]initWithIdentifier:kUuidBeaconThree clearFoundDevicesInterval:CLEAR_INTERVAL];
-    
+    self.beaconOne =  [[AltBeacon alloc ]initWithIdentifier:kUuidBeaconOne];
+    self.beaconTwo =  [[AltBeacon alloc ]initWithIdentifier:kUuidBeaconTwo];
+    self.beaconThree =  [[AltBeacon alloc ]initWithIdentifier:kUuidBeaconThree];
+
     [self.beaconOne addDelegate:self];
     [self.beaconTwo addDelegate:self];
     [self.beaconThree addDelegate:self];
-    
+
     // Add the beacons to the array
     self.uuidsToSearch = [[NSMutableArray alloc]initWithObjects:[CBUUID UUIDWithString:kUuidBeaconOne],[CBUUID UUIDWithString:kUuidBeaconTwo],[CBUUID UUIDWithString:kUuidBeaconThree], nil];
 }
@@ -108,77 +107,77 @@
     if (self.didStartAltBOne) {
         self.didStartAltBOne = NO;
         [self setTitleButton:@"Start AltBeacon 1" andButton: self.BtnAltBOne];
-        
+
         // setting the result label
         self.labelDisplayResult.text = @"";
-        
+
         // stop broadcasting and discovering
         [self stop:self.beaconOne];
-    
+
     } else {
         self.didStartAltBOne = YES;
         [self setTitleButton:@"Stop AltBeacon 1" andButton:self.BtnAltBOne];
-        
+
         // setting the result label
         self.labelDisplayResult.text = @"Scanning...............";
-        
+
         // start broadcasting and discovering
         [self start:self.beaconOne];
     }
 }
 
 - (IBAction)StartStopAltBTwo:(id)sender {
-    
+
     if (self.didStartAltBTwo) {
         self.didStartAltBTwo = NO;
         [self setTitleButton:@"Start AltBeacon 2" andButton: self.BtnAltBTwo];
-        
+
         // setting the result label
         self.labelDisplayResult.text = @"";
-        
+
         // stop broadcasting and discovering
         [self stop:self.beaconTwo];
-    
+
     } else {
-        
+
         self.didStartAltBTwo = YES;
         [self setTitleButton:@"Stop AltBeacon 2" andButton:self.BtnAltBTwo];
 
         // setting the result label
         self.labelDisplayResult.text = @"Scanning...............";
-        
+
         // start broadcasting and discovering
         [self start:self.beaconTwo];
     }
-    
+
 }
 
 - (IBAction)StartStopAltThree:(id)sender {
-    
+
     if (self.didStartAltBThree) {
         self.didStartAltBThree = NO;
         [self setTitleButton:@"Start AltBeacon 3" andButton: self.BtnAltBthree];
-        
+
         // setting the result label
         self.labelDisplayResult.text = @"";
-        
+
         // start broadcasting and discovering
         [self stop:self.beaconThree];
     }
     else {
         self.didStartAltBThree = YES;
         [self setTitleButton:@"Stop AltBeacon 3" andButton:self.BtnAltBthree];
-        
+
         // setting the result label
         self.labelDisplayResult.text = @"Scanning...............";
-        
+
         // start broadcasting and discovering
         [self start:self.beaconThree];
     }
 }
 
 - (void) setTitleButton:(NSString *)title andButton:(UIButton*)button {
-    
+
     [button setTitle:title forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateSelected];
     [button setTitle:title forState:UIControlStateHighlighted];
@@ -194,11 +193,11 @@
 
     // start broadcasting
     [beacon startBroadcasting];
-    [beacon startDetecting:self.uuidsToSearch];
+    [beacon startDetecting];
 }
 
 - (void)stop:(AltBeacon *)beacon {
-    
+
     // start broadcasting
     [beacon stopBroadcasting];
     [beacon stopDetecting];
@@ -207,7 +206,7 @@
 
 - (NSString*) convertToString:(NSNumber *)number {
     NSString *result = nil;
-    
+
     switch(number.intValue) {
         case INDetectorRangeFar:
             result = @"Up to 100 meters";
@@ -218,20 +217,31 @@
         case INDetectorRangeImmediate:
             result = @"Up to 5 meters";
             break;
-            
+
         default:
             result = @"Unknown";
     }
-    
+
     return result;
 }
 
 // Delegate methods
 - (void)service:(AltBeacon *)service foundDevices:(NSMutableDictionary *)devices {
-    
-    if (devices.allKeys.count > 0){
-        for(NSString *key in devices) {
-            NSNumber * range = [devices objectForKey:key];
+
+    for(NSString *key in devices) {
+        NSNumber * range = [devices objectForKey:key];
+        if (range.intValue == INDetectorRangeUnknown){
+            if ([key  isEqualToString:kUuidBeaconOne]){
+                self.labelDisplayResultBeacon1.text = @"";
+            }
+            else if ([key  isEqualToString: kUuidBeaconTwo]){
+                self.labelDisplayResultBeacon2.text =  @"";
+            }
+            else if ([key  isEqualToString: kUuidBeaconThree]){
+                self.labelDisplayResultBeacon3.text = @"";
+            }
+        }else{
+
             NSString *result = [self convertToString:range];
             NSString *beaconName = @"";
             if ([key  isEqualToString:kUuidBeaconOne]){
@@ -247,11 +257,6 @@
                 self.labelDisplayResultBeacon3.text = [NSString stringWithFormat:@"%@ %@ %@ %@", beaconName, @"was found",result, @"meters away"];
             }
         }
-    }else{
-        self.labelDisplayResult.text = @"Scanning...............";
-        self.labelDisplayResultBeacon1.text = @"";
-        self.labelDisplayResultBeacon2.text = @"";
-        self.labelDisplayResultBeacon3.text = @"";
     }
 }
 
