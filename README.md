@@ -5,7 +5,7 @@ AltBeacon is an alternative to iBeacon that allows iOS devices to be advertised 
 
 
 How does it work
-----------------
+----
 
 The key behind AltBeacon is that the Bluetooth Low Energy stack of iOS allows background advertising when acting as a Peripheral (In android this is still not possible but we are working in a workaround). However, when advertising in background it is only possible to discover UUIDs that you know previously (this is mentioned in the BLE documentation of apple but it was also tested by us). Using the following call:
 
@@ -14,23 +14,38 @@ The key behind AltBeacon is that the Bluetooth Low Energy stack of iOS allows ba
 
 Will find all the AltBeacons around that are advertising in the foreground but none that is advertising in the background. So this is not a valid alternative. 
 
-The solution is to discover UUIDs that you already know. But this approach is difficult to scale if you have a database with 1000000 AltBeacons. It would be impossible to scan them all. 
-The trick here is to use CoreLocation and store the Location of all the AltBeacons in a database and then define a radius of a few km to filter most of them. Then search only for the AltBeacons in that radius. Our experiments show that you can scan for a maximum of 7 UUIDS at a time. If you scan for more than that then the CentralManager returns as correct some UUIDs that are not really there. The following call, if it contains less than 7 UUIDS, will find them correctly.
+The solution is to discover service UUIDs that are already known. Therefore AltBeacons (Centrals) scan for other AltBeacons (Peripherals) with a General UUID already known by all the AltBeacons. When they find the AltBeacon (Peripheral), they connect to that peripheral and obtain a Specific UUID for that peripheral using services and characteristics. It is important to notice that we use 2 different UUIDs. The General AltBeacon UUID is always the same for all the AltBeacons and allows us to find them , and distinguish them from other devices using BLE. The Specific AltBeacon UUID is different for all the AltBeacons and allows us to identify and differentiate the AltBeacons form each other. It is important to know that the connection between the peripheral and the central happens only once, after that the central AltBeacon can remember the peripheral and it only needs to sense for the range afterwards. There is no need to reconnect (less battery usage).  
+
+Historical
+----
+A previous version of the AltBeacon worked quite differently. As we are still evaluating the current version performance, we add a small explanation of the previous version here as well. 
+
+The previous solutions was based on scanning directly for several Specific AltBeacons UUIDS at a time, instead of first scanning for a General UUID.  The trick was to use CoreLocation and store the Location of all the AltBeacons in a database and then define a radius of a few km to filter most of them. Then search only for the AltBeacons in that radius. Our experiments showed that you can scan for a maximum of 7 UUIDS at a time. If you scan for more than that then the CentralManager returns as correct some UUIDs that are not really there. The following call, if it contains less than 7 UUIDS, will find them correctly.
 
     NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
     [centralManager scanForPeripheralsWithServices:uuidsToDetect options:scanOptions];
 
-Considering that it takes a few hundred milliseconds to find the AltBeacons that you are scanning for, in a minute you can scan for hundred of beacons. In addition if you limit the number of AltBeacons using CoreLocation and database to a radius of a couple of kilometers then this approach is quite scalable. 
+Considering that it takes a few hundred milliseconds to find the AltBeacons that you are scanning for, in a minute you can scan for hundred of beacons. In addition if you limit the number of AltBeacons using CoreLocation and database to a radius of a couple of kilometers then this approach is quite scalable.
+
+An important problem with this previous version was that when more that one app was using the BLE stack at a time to advertise in background, the scanning AltBeacon would incorrectly report the findings. 
 
 Version
 ----
 
-0.1
+0.3
+
+Changelog
+----
+
+0.3 
+- Now it is possible to detect any AltBeacon, no need to know location previously.
+- Some fixes in the reporting of the ranges
+
 
 Installation
 ----
 
-Copy the source folder into your xcode project. (Soon I will add a cocoapod as well)
+Copy the source folder into your xcode project. Or install via cocoapods
 
 Usage
 ----
@@ -55,17 +70,14 @@ Then start create the beacons broadcasting and detecting.
     [self.beaconOne addDelegate:self];
     [self.beaconTwo addDelegate:self];
     [self.beaconThree addDelegate:self];
-    
-    // Add the beacons to the array
-    self.uuidsToSearch = [[NSMutableArray alloc]initWithObjects:[CBUUID UUIDWithString:kUuidBeaconOne],[CBUUID UUIDWithString:kUuidBeaconTwo],[CBUUID UUIDWithString:kUuidBeaconThree], nil];
 
-Then tell the beacon to start detecting and advertising (broadcasting). You need to pass the uuids to detect. As we mention, pass 7 maximum per detection cycle and use Location and a uuids database to filter to the UUIDS of the devices in a radius of a few km to make this approach scalable. 
+Then tell the beacon to start detecting and advertising (broadcasting). 
 
     - (void)start:(AltBeacon *)beacon {
 
         // start broadcasting
         [beacon startBroadcasting];
-        [beacon startDetecting:self.uuidsToSearch];
+        [beacon startDetecting];
     }
 
     - (void)stop:(AltBeacon *)beacon {
@@ -80,10 +92,21 @@ Implement the delegate to receive the information when the devices are found. Yo
 
     // Delegate methods
     - (void)service:(AltBeacon *)service foundDevices:(NSMutableDictionary *)devices {
-        
-        if (devices.allKeys.count > 0){
-            for(NSString *key in devices) {
-                NSNumber * range = [devices objectForKey:key];
+
+        for(NSString *key in devices) {
+            NSNumber * range = [devices objectForKey:key];
+            if (range.intValue == INDetectorRangeUnknown){
+                if ([key  isEqualToString:kUuidBeaconOne]){
+                    self.labelDisplayResultBeacon1.text = @"";
+                }
+                else if ([key  isEqualToString: kUuidBeaconTwo]){
+                    self.labelDisplayResultBeacon2.text =  @"";
+                }
+                else if ([key  isEqualToString: kUuidBeaconThree]){
+                    self.labelDisplayResultBeacon3.text = @"";
+                }
+            }else{
+
                 NSString *result = [self convertToString:range];
                 NSString *beaconName = @"";
                 if ([key  isEqualToString:kUuidBeaconOne]){
@@ -99,11 +122,6 @@ Implement the delegate to receive the information when the devices are found. Yo
                     self.labelDisplayResultBeacon3.text = [NSString stringWithFormat:@"%@ %@ %@ %@", beaconName, @"was found",result, @"meters away"];
                 }
             }
-        }else{
-            self.labelDisplayResult.text = @"Scanning...............";
-            self.labelDisplayResultBeacon1.text = @"";
-            self.labelDisplayResultBeacon2.text = @"";
-            self.labelDisplayResultBeacon3.text = @"";
         }
     }
 
