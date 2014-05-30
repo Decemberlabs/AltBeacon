@@ -33,7 +33,9 @@ Changelog
 Installation
 ----
 
-Copy the source folder into your xcode project. Or install via cocoapods
+Copy the source folder into your xcode project. Or install via cocoapods 
+
+pod 'AltBeacon', :git => 'https://github.com/CharruaLabs/AltBeacon.git'
 
 Usage
 ----
