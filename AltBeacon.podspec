@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, "6.0"
 
-  s.source       = { :git => "https://github.com/CharruaLabs/AltBeacon.git" :tag => s.version.to_s } 
+  s.source       = { :git => "https://github.com/CharruaLabs/AltBeacon.git", :tag => s.version.to_s } 
 
   s.source_files  = "AltBeacon/Source/**/*.{h,m}"
 
