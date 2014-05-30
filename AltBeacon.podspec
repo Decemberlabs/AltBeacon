@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "AltBeacon"
-  s.version      = "0.0.1"
+  s.version      = "0.3"
   s.summary      = "AltBeacon is an alternative to iBeacon that allows iOS devices to be advertised in the background, which is not currently possible with iBeacon."
 
   s.description  = <<-DESC
