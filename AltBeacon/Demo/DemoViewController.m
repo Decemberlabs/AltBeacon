@@ -54,7 +54,6 @@
 @property (strong, nonatomic) AltBeacon* beaconOne;
 @property (strong, nonatomic) AltBeacon* beaconTwo;
 @property (strong, nonatomic) AltBeacon* beaconThree;
-@property (strong, nonatomic) NSMutableArray* uuidsToSearch;
 @property (weak, nonatomic) IBOutlet UILabel *labelDisplayResult;
 @property (weak, nonatomic) IBOutlet UILabel *labelDisplayResultBeacon2;
 @property (weak, nonatomic) IBOutlet UILabel *labelDisplayResultBeacon3;
@@ -90,9 +89,6 @@
     [self.beaconOne addDelegate:self];
     [self.beaconTwo addDelegate:self];
     [self.beaconThree addDelegate:self];
-
-    // Add the beacons to the array
-    self.uuidsToSearch = [[NSMutableArray alloc]initWithObjects:[CBUUID UUIDWithString:kUuidBeaconOne],[CBUUID UUIDWithString:kUuidBeaconTwo],[CBUUID UUIDWithString:kUuidBeaconThree], nil];
 }
 
 - (void)didReceiveMemoryWarning
