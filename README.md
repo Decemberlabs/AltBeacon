@@ -49,7 +49,7 @@ Usage
 
 Otherwise check the following instructions. **Remember to add the background mode: Act as a Bluetooth LE accesory.**
 
-Define the UUIDS of the AltBeacons. In a real project you would generate this automatically and store them in a database to then perform the location radius filtering. 
+Define the UUIDS of the AltBeacons. In a real project you would generate them automatically (NSString *uuid = [[NSUUID UUID] UUIDString]) and store them in a database. 
 
     #define kUuidBeaconOne @"5F22CA05-8F6C-49B6-AEAE-B278FDFE9287"
     #define kUuidBeaconTwo @"9F3E9E58-5073-4F78-BD04-87050DAFB604"
