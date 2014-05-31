@@ -14,7 +14,12 @@ The key behind AltBeacon is that the Bluetooth Low Energy stack of iOS allows ba
 
 Will find all the AltBeacons around that are advertising in the foreground but none that is advertising in the background. So this is not a valid alternative. 
 
-The solution is to discover service UUIDs that are already known. Therefore AltBeacons (Centrals) scan for other AltBeacons (Peripherals) with a General UUID already known by all the AltBeacons. When they find the AltBeacon (Peripheral), they connect to that peripheral and obtain a Specific UUID for that peripheral using services and characteristics. It is important to notice that we use 2 different UUIDs. The General AltBeacon UUID is always the same for all the AltBeacons and allows us to find them , and distinguish them from other devices using BLE. The Specific AltBeacon UUID is different for all the AltBeacons and allows us to identify and differentiate the AltBeacons form each other. It is important to know that the connection between the peripheral and the central happens only once, after that the central AltBeacon can remember the peripheral and it only needs to sense for the range afterwards. There is no need to reconnect (less battery usage).  
+The solution is to discover AltBeacons by using a general UUID known by all of them.
+
+    NSDictionary *scanOptions = @{CBCentralManagerScanOptionAllowDuplicatesKey:@(YES)};
+    [centralManager scanForPeripheralsWithServices:ALT_BEACON_GENERAL_UUID options:scanOptions];
+
+Then AltBeacons (Centrals) scan for other AltBeacons (Peripherals) with a General UUID already known by all the AltBeacons. When they find the AltBeacon (Peripheral), they connect to that peripheral and obtain a Specific UUID for that peripheral using services and characteristics. It is important to notice that we use 2 different UUIDs. The General AltBeacon UUID is always the same for all the AltBeacons and allows us to find them , and distinguish them from other devices using BLE. The Specific AltBeacon UUID is different for all the AltBeacons and allows us to identify and differentiate the AltBeacons form each other. It is important to know that the connection between the peripheral and the central happens only once, after that the central AltBeacon can remember the peripheral and it only needs to sense for the range, there is no need to reconnect (less battery usage).  
 
 
 Version
@@ -35,7 +40,7 @@ Installation
 
 Copy the source folder into your xcode project. Or install via cocoapods 
 
-pod 'AltBeacon', :git => 'https://github.com/CharruaLabs/AltBeacon.git'
+pod 'AltBeacon'
 
 Usage
 ----
