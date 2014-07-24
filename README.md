@@ -122,10 +122,10 @@ Implement the delegate to receive the information when the devices are found. Yo
 
 Other things
 ----
-**Please notice that this library is under development, please feel free to contribute and mention design alternatives and possibilities.** Contacts us at charrualabs@gmail.com
+**Please notice that this library is under development, please feel free to contribute and mention design alternatives and possibilities.** Contacts us at martin@charrualabs.com
 
 Martin Palatnik -> 
-e-mail:  marpal@gmail.com
+e-mail:  martin@charrualabs.com
 Twitter: @mpalatnik
 
 Historical
