@@ -141,6 +141,11 @@ Considering that it takes a few hundred milliseconds to find the AltBeacons that
 
 An important problem with this previous version was that when more that one app was using the BLE stack at a time to advertise in background, the scanning AltBeacon would incorrectly report the findings. 
 
+Disambiguation
+----
+If you are looking for the Open and Interoperable Proximity Beacon Specification with the same name please go to:
+http://altbeacon.org/
+
 License
 ----
 
