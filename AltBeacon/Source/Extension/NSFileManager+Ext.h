@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@import CoreGraphics;
 
 @interface NSFileManager(Ext)
 - (CGFloat)extFileSizeInMegaBytesAtPath:(NSString *)path;
