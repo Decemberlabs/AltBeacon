@@ -68,7 +68,7 @@
     currentValue += velocity;
     
     // limit how small the ease can get
-    if(fabsf(targetValue - currentValue) < 0.001f){
+    if(fabs(targetValue - currentValue) < 0.001f){
         currentValue = targetValue;
         velocity = 0.0f;
     }
