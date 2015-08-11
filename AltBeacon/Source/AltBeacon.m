@@ -176,11 +176,11 @@
 
 
 - (void)             peripheral:(CBPeripheral *)peripheral
-didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
+didUpdateValueForCharacteristic:(CBCharacteristic *)peripheralCharacteristic
                           error:(NSError *)error {
 
     if (!error) {
-        NSData *data = characteristic.value;
+        NSData *data = peripheralCharacteristic.value;
         NSString *newStr = [[NSString alloc] initWithData:data
                                                  encoding:NSUTF8StringEncoding];
 
