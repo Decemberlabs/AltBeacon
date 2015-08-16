@@ -5,6 +5,8 @@
 //  Copyright (c) 2011 Ben Ford All rights reserved.
 //
 
+@import CoreGraphics;
+@import UIKit;
 #import <Foundation/Foundation.h>
 
 typedef enum {

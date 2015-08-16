@@ -42,30 +42,30 @@
 }
 
 - (NSUInteger)extMonth {
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSMonthCalendarUnit fromDate:self];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitMonth fromDate:self];
     return components.month;
 }
 
 - (NSUInteger)extDay {
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit fromDate:self];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay fromDate:self];
     return components.day;
 }
 
 - (NSUInteger)extYear {
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSYearCalendarUnit fromDate:self];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear fromDate:self];
     return components.year;
 }
 
 - (NSUInteger)extDaysInMonth {
-    NSRange days = [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit
-                                                      inUnit:NSMonthCalendarUnit
+    NSRange days = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay
+                                                      inUnit:NSCalendarUnitMonth
                                                      forDate:self];
 
     return days.length;
 }
 
 - (NSUInteger)extWeekday {
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSWeekdayCalendarUnit fromDate:self];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitWeekday fromDate:self];
     return components.weekday;
 }
 
@@ -73,7 +73,8 @@
     NSMutableArray *months = [[NSMutableArray alloc] init];
     [months addObject:fromDate];
 
-    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
     [offsetComponents setMonth:1];
     
@@ -87,7 +88,7 @@
 }
 
 - (NSUInteger)extLastDayOfMonth {
-    NSRange daysRange = [[NSCalendar currentCalendar] rangeOfUnit:NSDayCalendarUnit inUnit:NSMonthCalendarUnit forDate:self];
+    NSRange daysRange = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:self];
     
     return daysRange.length;
 }
