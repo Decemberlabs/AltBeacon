@@ -54,6 +54,7 @@ typedef enum {
 
 @property (nonatomic, readonly) BOOL isDetecting;
 @property (nonatomic, readonly) BOOL isBroadcasting;
+@property (nonatomic, readonly) NSString* identifier;
 
 - (void)startDetecting;
 - (void)stopDetecting;
